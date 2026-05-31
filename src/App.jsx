@@ -4,6 +4,7 @@ import Establishments from './pages/Establishments';
 import Payments from './pages/Payments';
 import Analytics from './pages/Analytics';
 import Languages from './pages/Languages'
+import Regions from "./pages/Regions";
 
 export default function App() {
     return (
@@ -17,6 +18,7 @@ export default function App() {
                     <Route path="/payments" element = {<Payments />} />
                     <Route path="/analytics" element = {<Analytics />} />
                     <Route path="/languages" element = {<Languages />} />
+                    <Route path="/regions" element = {<Regions />} />
                 </Routes>
             </main>
         </div>
