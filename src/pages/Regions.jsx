@@ -30,7 +30,7 @@ export default function Regions() {
         <button onClick={() => setShowRegions(true)}>+ Добавить регионы</button>
         </div>
         {showRegions && (
-            <div>
+            <div className='modal'>
                 <input
                 placeholder='Регион'
                 value={newRegions}

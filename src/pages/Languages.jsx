@@ -34,7 +34,7 @@ export default function Languages() {
             <button onClick={() => setShowLanguages(true)}>+ Добавить язык</button>
             </div>
             {showLanguages && (
-                <div>
+                <div className="modal">
             <input 
             placeholder='Язык'
             value={newLanguages}
