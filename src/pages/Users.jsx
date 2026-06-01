@@ -39,6 +39,13 @@ export default function Users() {
                 <button onClick={() => setShowUsers(false)}>Отмена</button>
                 </div>
         )}
+          <div className='search'>
+            <input 
+            placeholder='Поиск...' 
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            />
+            </div>
         <table>
             <tbody>
                 {users.map((item) => (
