@@ -5,6 +5,8 @@ export default function Orders() {
     const [orders, setOrders] = useState([]);
     const [showOrders, setShowOrders] = useState(false);
     const [newOrders, setNewOrders] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    const [status, setStatus] = useState(false);
 
     useEffect (() => {
         supabase.from('orders').select('*').then(({data, error}) => {
@@ -28,7 +30,28 @@ export default function Orders() {
         <div>
             <div className='header'>
                 <h1>Заказы</h1>
+                <button onClick={() => setShowModal(true)}>Все статусы </button>
             </div>
+            {showModal && (
+                <div className='modal'>
+                    <input
+                    placeholder='Заказ'
+                    value={newOrders}
+                    onChange={(e) => setNewOrders(e.target.value)}
+                    />
+                    <input
+                    placeholder='Статус'
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                    />
+            )}
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     )
 }

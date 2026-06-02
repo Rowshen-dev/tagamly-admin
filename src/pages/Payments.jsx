@@ -15,7 +15,7 @@ export default function Payments() {
      }, [])
     return (
         <div>
-        <div>
+        <div className="header">
             <h1>Tolegler</h1>
         </div>
         <table>
