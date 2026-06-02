@@ -5,6 +5,7 @@ export default function Users() {
     const [users, setUsers] = useState([]);
     const [showUsers, setShowUsers] = useState(false);
     const [newUsers, setNewUsers] = useState('');
+    const [search, setSearch] = useState('');
     useEffect(() => {
         supabase.from('users').select('*').then(({data, error}) => {
             if(error) {
@@ -16,7 +17,7 @@ export default function Users() {
     }, [])
     const handleAdd = async () => {
         await supabase.from('users').insert({
-            name: newUsers
+            username: newUsers
         })
         const {data} = await supabase.from('users').select('*')
         setUsers(data)
@@ -48,10 +49,11 @@ export default function Users() {
             </div>
         <table>
             <tbody>
-                {users.map((item) => (
+                {users.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+                .map((item) => (
                     <tr key={item.id}>
                         <td>
-                            {item.name}
+                            {item.username}
                         </td>
                     </tr>
                 ))}
