@@ -11,7 +11,7 @@ export default function Orders() {
     useEffect (() => {
         supabase.from('orders').select('*').then(({data, error}) => {
             if(error) {
-                console.lof('Ошибка')
+                console.log('Ошибка')
                 return
             }
             if(data) setOrders(data)
@@ -44,6 +44,7 @@ export default function Orders() {
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                     />
+                    </div>
             )}
             <table>
                 <thead>

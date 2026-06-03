@@ -19,6 +19,7 @@ export default function App() {
                     <Route path="/analytics" element = {<Analytics />} />
                     <Route path="/languages" element = {<Languages />} />
                     <Route path="/regions" element = {<Regions />} />
+                    <Route path="/orders" element = {<Orders />} />
                 </Routes>
             </main>
         </div>
