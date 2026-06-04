@@ -48,7 +48,21 @@ export default function Users() {
             />
             </div>
         <table>
-            <tbody>
+            
+                <thead>
+                    <tr>
+                        <th>
+                            Имя пользователя
+                        </th>
+                        <th>
+                            Заведение
+                        </th>
+                        <th>
+                            Статус
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
                 {users.filter(item => item.username.toLowerCase().includes(search.toLowerCase()))
                 .map((item) => (
                     <tr key={item.id}>
