@@ -1,58 +1,65 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 
 export default function Orders() {
     const [orders, setOrders] = useState([]);
-    const [showOrders, setShowOrders] = useState(false);
-    const [newOrders, setNewOrders] = useState('');
-    const [showModal, setShowModal] = useState(false);
-    const [status, setStatus] = useState(false);
+    const [statusFilter, setStatusFilter] = useState('all');
 
-    useEffect (() => {
-        supabase.from('orders').select('*').then(({data, error}) => {
-            if(error) {
-                console.log('Ошибка')
-                return
-            }
-            if(data) setOrders(data)
-        })
-    }, [])
-    const handleAdd = async () => {
-        await supabase.from('orders').insert({
-            name: newOrders
-        })
-        const {data} = await supabase.from('orders').select('*')
-        setOrders(data)
-        setShowOrders(false)
+    useEffect(() => {
+        supabase.from('orders').select('*').order('created_at', { ascending: false })
+        .then(({ data, error }) => {
+            if (error) { console.log(error); return; }
+            if (data) setOrders(data);
+        });
+    }, []);
 
-    }
+    const filtered = statusFilter === 'all' 
+        ? orders 
+        : orders.filter(o => o.status === statusFilter);
+
     return (
         <div>
-            <div className='header'>
+            <div className="header">
                 <h1>Заказы</h1>
-                <button onClick={() => setShowModal(true)}>Все статусы </button>
+                <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+                    <option value="all">Все статусы</option>
+                    <option value="pending">Ожидает</option>
+                    <option value="preparing">Готовится</option>
+                    <option value="on_the_way">В пути</option>
+                    <option value="ready">Готов к выдаче</option>
+                    <option value="completed">Завершён</option>
+                    <option value="cancelled">Отменён</option>
+                </select>
             </div>
-            {showModal && (
-                <div className='modal'>
-                    <input
-                    placeholder='Заказ'
-                    value={newOrders}
-                    onChange={(e) => setNewOrders(e.target.value)}
-                    />
-                    <input
-                    placeholder='Статус'
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                    />
-                    </div>
-            )}
+
             <table>
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>№</th>
+                        <th>Дата</th>
+                        <th>Заведение</th>
+                        <th>Телефон клиента</th>
+                        <th>Контактный телефон</th>
+                        <th>Способ</th>
+                        <th>Итого</th>
+                        <th>Статус</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {filtered.map((order, index) => (
+                        <tr key={order.id}>
+                            <td>#{index + 1}</td>
+                            <td>{new Date(order.created_at).toLocaleString('ru-RU')}</td>
+                            <td>{order.establishment_id || '—'}</td>
+                            <td>{order.customer_phone || '—'}</td>
+                            <td>{order.contact_phone || '—'}</td>
+                            <td>{order.method === 'pickup' ? 'Самовывоз' : 'Доставка'}</td>
+                            <td>{order.total}</td>
+                            <td>{order.status}</td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </div>
-    )
+    );
 }
