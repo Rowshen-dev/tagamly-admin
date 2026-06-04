@@ -3,9 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const links = [
     { to: '/orders', icon: ShoppingBag, label: 'Заказы'},
-    { to: '/analystics', icon: BarChart2, label: 'Статистика'},
     { to: '/establishments', icon: Store, label: 'Заведения'},
-    { to: '/payments', icon: CreditCard, label: 'Оплаты заведений'},
     { to: '/languages', icon: Globe, label: 'Язык'},
     { to: '/regions', icon: MapPin, label: 'Регионы'},
     { to: '/users', icon: Users, label: 'Пользователи'},

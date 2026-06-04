@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import  Sidebar  from "./components/Sidebar";
 import Establishments from './pages/Establishments';
-import Payments from './pages/Payments';
-import Analytics from './pages/Analytics';
 import Languages from './pages/Languages'
 import Regions from "./pages/Regions";
 import Orders from './pages/Orders';
@@ -18,8 +16,6 @@ export default function App() {
                 <Routes>
                     <Route path="/" element = {<Navigate to="/establishments" />} />
                     <Route path="/establishments" element = {<Establishments />} />
-                    <Route path="/payments" element = {<Payments />} />
-                    <Route path="/analytics" element = {<Analytics />} />
                     <Route path="/languages" element = {<Languages />} />
                     <Route path="/regions" element = {<Regions />} />
                     <Route path="/orders" element = {<Orders />} />
