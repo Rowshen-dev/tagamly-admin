@@ -5,6 +5,9 @@ import Payments from './pages/Payments';
 import Analytics from './pages/Analytics';
 import Languages from './pages/Languages'
 import Regions from "./pages/Regions";
+import Orders from './pages/Orders';
+import Users from "./pages/Users";
+import Translations from './pages/Translations';
 
 export default function App() {
     return (
@@ -20,6 +23,8 @@ export default function App() {
                     <Route path="/languages" element = {<Languages />} />
                     <Route path="/regions" element = {<Regions />} />
                     <Route path="/orders" element = {<Orders />} />
+                    <Route path="/users" element = {<Users />} />
+                    <Route path="/translations" element = {<Translations />} />
                 </Routes>
             </main>
         </div>
