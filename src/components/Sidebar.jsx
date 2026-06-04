@@ -35,7 +35,8 @@ export default function Sidebar() {
                     padding: '10px 20px',
                     textDecoration: 'none',
                     color: isActive ? '#F97316' : '#333',
-                    backgroundColor: isActive ? '3px solid #F97316' : '3px solid transparent',
+                    backgroundColor: isActive ? '#FFF7ED' : 'transparent',
+                    borderLeft: isActive ? '3px solid #F97316' : '3px solid transparent',
                     fontSize: '14px'
                 })}>
                     <Icon size = {18} />
