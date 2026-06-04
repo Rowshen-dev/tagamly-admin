@@ -49,7 +49,7 @@ export default function Users() {
             </div>
         <table>
             <tbody>
-                {users.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+                {users.filter(item => item.username.toLowerCase().includes(search.toLowerCase()))
                 .map((item) => (
                     <tr key={item.id}>
                         <td>
