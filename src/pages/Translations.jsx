@@ -4,7 +4,22 @@ import { supabase } from '../lib/supabase';
 
 export default function Translations() {
     const [translations, setTranslations] = useState([]);
-    const [showtranslate, setShowTranslate] = useState(false);
+    const [showTranslate, setShowTranslate] = useState(false);
+    const [newKey, setNewKey] = useState('');
+    const [newRu, setNewRu] = useState('');
+    const [newTk, setNewTk] = useState('');
+
+    const handleAdd = async () => {
+        await supabase.from('translations').insert({
+            key: newKey,
+            ru: newRu,
+            tk: newTk,
+
+        })
+        const {data} = await supabase.from('translations').select('*')
+        setTranslations(data)
+        setShowTranslate(false)
+    }
 
     useEffect(() => {
         supabase.from('translations').select('*').then(({data, error}) => {
@@ -22,6 +37,27 @@ export default function Translations() {
             <h1>Переводы</h1>
             <button onClick={() => setShowTranslate(true)}>+ Добавить перевод</button>
             </div>
+            {showTranslate && (
+                <div className='modal'>
+                    <input
+                    placeholder='Ключ'
+                    value={newKey}
+                    onChange={(e) => setNewKey(e.target.value)}
+                    />
+                    <input
+                    placeholder='Русский'
+                    value={newRu}
+                    onChange={(e) => setNewRu(e.target.value)}
+                    />
+                    <input
+                    placeholder='Туркменский'
+                    value={newTk}
+                    onChange={(e) => setNewTk(e.target.value)}
+                    />
+                    <button onClick={handleAdd}>Сохранить</button>
+                    <button onClick={() => setShowTranslate(false)}>Отмена</button>
+                    </div>
+            )}
             <table>
                 <thead>
                     <tr>
