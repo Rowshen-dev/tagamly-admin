@@ -1,16 +1,19 @@
 import { Store, ShoppingBag, BarChart2, CreditCard, Globe, MapPin, Users, Languages } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import i18n from '../i18n';
 
-const links = [
-    { to: '/orders', icon: ShoppingBag, label: 'Заказы'},
-    { to: '/establishments', icon: Store, label: 'Заведения'},
-    { to: '/languages', icon: Globe, label: 'Язык'},
-    { to: '/regions', icon: MapPin, label: 'Регионы'},
-    { to: '/users', icon: Users, label: 'Пользователи'},
-    { to: '/translations', icon: Languages, label: 'Переводы'},
-]
 
 export default function Sidebar() {
+    const { t } = useTranslation()
+    const links = [
+    { to: '/orders', icon: ShoppingBag, label: t('orders')},
+    { to: '/establishments', icon: Store, label: t('establishments')},
+    { to: '/languages', icon: Globe, label: t('language')},
+    { to: '/regions', icon: MapPin, label: t('regions')},
+    { to: '/users', icon: Users, label: t('users')},
+    { to: '/translations', icon: Languages, label: t('translations')},
+]
     return (
         <div style={{
             width: '220px',
@@ -41,6 +44,11 @@ export default function Sidebar() {
                     {label}
                 </NavLink>
             ))}
+
+            <div style={{padding: '12px 20px', display: 'flex', gap: '8px'}}>
+                <button onClick={() => i18n.changeLanguage('ru')}>Русский</button>
+                <button onClick={() => i18n.changeLanguage('tk')}>Turkmen</button>
+            </div>
 
             <div style={{ marginTop: 'auto', padding: '20px', borderTop: '1px solid #eee '}}>
                 <div style={{fontWeight: 'bold', fontSize: '14px'}}>admin</div>
