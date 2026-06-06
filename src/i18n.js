@@ -11,7 +11,7 @@ i18n.use(initReactI18next).init({
                 establishments: 'Restoranlar',
                 payments: 'Tölegler',
                 language: 'Dil',
-                regions: '',
+                regions: 'Sebitler',
                 users: 'Ulanyjylar',
                 translations: 'Terjimeler',
                 admin: 'Admin',
