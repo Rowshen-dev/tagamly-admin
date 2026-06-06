@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
+import { useTranslation } from "react-i18next";
 
 export default function Users() {
     const [users, setUsers] = useState([]);
     const [showUsers, setShowUsers] = useState(false);
     const [newUsers, setNewUsers] = useState('');
     const [search, setSearch] = useState('');
+    const {t} = useTranslation();
     useEffect(() => {
         supabase.from('users').select('*').then(({data, error}) => {
             if(error) {
@@ -26,7 +28,7 @@ export default function Users() {
     return (
         <div>
             <div className="header">
-        <h1>Пользователи</h1>
+        <h1>{t('users_title')}</h1>
         <button onClick={() => setShowUsers(true)}>+ Добавить пользователя</button>
         </div>
         {showUsers && (

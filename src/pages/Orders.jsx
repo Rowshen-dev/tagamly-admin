@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
+import { useTranslation } from 'react-i18next';
 
 export default function Orders() {
     const [orders, setOrders] = useState([]);
     const [statusFilter, setStatusFilter] = useState('all');
-
+    const {t} = useTranslation();
     useEffect(() => {
         supabase.from('orders').select('*').order('created_at', { ascending: false })
         .then(({ data, error }) => {
@@ -20,7 +21,7 @@ export default function Orders() {
     return (
         <div>
             <div className="header">
-                <h1>Заказы</h1>
+                <h1>{t('orders_title')}</h1>
                 <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
                     <option value="all">Все статусы</option>
                     <option value="pending">Ожидает</option>

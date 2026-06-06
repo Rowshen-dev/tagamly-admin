@@ -8,13 +8,19 @@ i18n.use(initReactI18next).init({
             translation: {
                 orders: 'Sargytlar',
                 analytics: 'Statistika',
-                establishments: 'Kärhanalar',
+                establishments: 'Restoranlar',
                 payments: 'Tölegler',
                 language: 'Dil',
-                regions: 'Sebitler',
+                regions: '',
                 users: 'Ulanyjylar',
                 translations: 'Terjimeler',
                 admin: 'Admin',
+                establishments_title: 'Restoranlar',
+                payments_title: 'Tolegler',
+                languages_title: 'Diller',
+                regions_title: 'Sebitler',
+                users_title: 'Ulanyjylar',
+                orders_title: 'Sargytlar'
             }
         },
         ru: {
@@ -28,6 +34,12 @@ i18n.use(initReactI18next).init({
                 users: 'Пользователи',
                 translations: 'Переводы',
                 admin: 'Админ',
+                 establishments_title: 'Заведения',
+                    payments_title: 'Оплаты заведений',
+                    languages_title: 'Языки',
+                    regions_title: 'Регионы',
+                    users_title: 'Пользователи',
+                    orders_title: 'Заказы',
             }
         }
     }

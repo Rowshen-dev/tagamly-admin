@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import './Languages.css'
+import { useTranslation } from "react-i18next";
 
 
 export default function Languages() {
     const [languages, setLanguages] = useState([]);
     const [showLanguages, setShowLanguages] = useState(false);
     const [newLanguages, setNewLanguages] = useState('');
-   
+    const {t} = useTranslation();
         useEffect(() => {
             supabase.from('languages').select('*').then(({data, error}) => {
                 if(error) {
@@ -30,7 +31,7 @@ export default function Languages() {
     return (
         <div>
             <div className="header">
-            <h1>Diller</h1>
+            <h1>{t('languages_title')}</h1>
             <button onClick={() => setShowLanguages(true)}>+ Добавить язык</button>
             </div>
             {showLanguages && (

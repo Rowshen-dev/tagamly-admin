@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
-import './Establishments.css'
+import './Establishments.css';
+import  {useTranslation} from 'react-i18next'
 
 
 export default function Establishments() {
@@ -10,6 +11,7 @@ export default function Establishments() {
     const [time, setTime] = useState([]);
     const [establishments, setEstablishments] = useState([]);
     const [search, setSearch] = useState('');  
+    const {t} = useTranslation();
     useEffect(() => {
         supabase.from('establishments').select('*'). then(({data, error}) => {
             if (error) {
@@ -36,7 +38,7 @@ export default function Establishments() {
     return (
         <div>
             <div className='header'>
-            <h1>Restoranlar</h1>
+            <h1>{t('establishments_title')}</h1>
             <button onClick={() => setShowForm(true)}>+ Добавить заведение</button>
             </div>
             {showForm && (

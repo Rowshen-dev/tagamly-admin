@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
+import { useTranslation } from 'react-i18next';
 
 export default function Regions() {
     const [regions, setRegions] = useState([]);
     const [showRegions, setShowRegions] = useState(false);
     const [newRegions, setNewRegions] = useState('')
+    const {t} = useTranslation();
     useEffect(() => {
         supabase.from('regions').select('*').then(({data, error}) => {
             if(error) {
@@ -26,7 +28,7 @@ export default function Regions() {
     return (
         <div>
             <div className='header'>
-        <h1>Регионы</h1>
+        <h1>{t('regions_title')}</h1>
         <button onClick={() => setShowRegions(true)}>+ Добавить регионы</button>
         </div>
         {showRegions && (

@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import { supabase } from '../lib/supabase';
+import { useTranslation } from 'react-i18next';
 
 
 export default function Translations() {
@@ -8,6 +9,7 @@ export default function Translations() {
     const [newKey, setNewKey] = useState('');
     const [newRu, setNewRu] = useState('');
     const [newTk, setNewTk] = useState('');
+    const {t} = useTranslation();
 
     const handleAdd = async () => {
         await supabase.from('translations').insert({
@@ -34,7 +36,7 @@ export default function Translations() {
     return (
         <div>
             <div className='header'>
-            <h1>Переводы</h1>
+            <h1>{t('translations_title')}</h1>
             <button onClick={() => setShowTranslate(true)}>+ Добавить перевод</button>
             </div>
             {showTranslate && (
