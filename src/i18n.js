@@ -22,10 +22,10 @@ i18n.use(initReactI18next).init({
                 users_title: 'Ulanyjylar',
                 orders_title: 'Sargytlar',
                 add_establishments: 'Restoran gosmak',
-                add_language_title: 'Dil gosmak',
-                add_regions_title: 'Sebit gosmak',
-                add_user_title: 'Ulanyjy gosmak',
-                add_translation_title: 'Terjime gosmak'
+                add_language: 'Dil gosmak',
+                add_regions: 'Sebit gosmak',
+                add_user: 'Ulanyjy gosmak',
+                add_translation: 'Terjime gosmak'
             }
         },
         ru: {
