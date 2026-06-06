@@ -45,12 +45,12 @@ export default function Sidebar() {
                 </NavLink>
             ))}
 
-            <div style={{padding: '12px 20px', display: 'flex', gap: '8px'}}>
+            <div style={{padding: '12px 20px', display: 'flex', gap: '8px', marginTop: 'auto'}}>
                 <button onClick={() => i18n.changeLanguage('ru')}>Русский</button>
                 <button onClick={() => i18n.changeLanguage('tk')}>Turkmen</button>
             </div>
 
-            <div style={{ marginTop: 'auto', padding: '20px', borderTop: '1px solid #eee '}}>
+            <div style={{ padding: '20px', borderTop: '1px solid #eee '}}>
                 <div style={{fontWeight: 'bold', fontSize: '14px'}}>admin</div>
                 <div style={{color: '#999', fontSize: '12px'}}>Admin</div>
             </div>
