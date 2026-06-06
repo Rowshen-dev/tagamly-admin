@@ -46,10 +46,10 @@ i18n.use(initReactI18next).init({
                     users_title: 'Пользователи',
                     orders_title: 'Заказы',
                     add_establishments: 'Добавить заведение',
-                add_language_title: 'Добавить язык',
-                add_regions_title: 'Добавить регион',
-                add_user_title: 'Добавить пользователя',
-                add_translation_title: 'Добавить перевод',
+                add_language: 'Добавить язык',
+                add_regions: 'Добавить регион',
+                add_user: 'Добавить пользователя',
+                add_translation: 'Добавить перевод',
 
             }
         }

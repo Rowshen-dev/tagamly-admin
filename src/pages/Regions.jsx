@@ -29,7 +29,7 @@ export default function Regions() {
         <div>
             <div className='header'>
         <h1>{t('regions_title')}</h1>
-        <button onClick={() => setShowRegions(true)}>+ {t('add_regions_title')}</button>
+        <button onClick={() => setShowRegions(true)}>+ {t('add_regions')}</button>
         </div>
         {showRegions && (
             <div className='modal'>
