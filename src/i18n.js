@@ -20,7 +20,12 @@ i18n.use(initReactI18next).init({
                 languages_title: 'Diller',
                 regions_title: 'Sebitler',
                 users_title: 'Ulanyjylar',
-                orders_title: 'Sargytlar'
+                orders_title: 'Sargytlar',
+                add_establishments: 'Restoran gosmak',
+                add_language_title: 'Dil gosmak',
+                add_regions_title: 'Sebit gosmak',
+                add_user_title: 'Ulanyjy gosmak',
+                add_translation_title: 'Terjime gosmak'
             }
         },
         ru: {
@@ -40,6 +45,12 @@ i18n.use(initReactI18next).init({
                     regions_title: 'Регионы',
                     users_title: 'Пользователи',
                     orders_title: 'Заказы',
+                    add_establishments: 'Добавить заведение',
+                add_language_title: 'Добавить язык',
+                add_regions_title: 'Добавить регион',
+                add_user_title: 'Добавить пользователя',
+                add_translation_title: 'Добавить перевод',
+
             }
         }
     }

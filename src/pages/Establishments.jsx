@@ -39,7 +39,7 @@ export default function Establishments() {
         <div>
             <div className='header'>
             <h1>{t('establishments_title')}</h1>
-            <button onClick={() => setShowForm(true)}>+ Добавить заведение</button>
+            <button onClick={() => setShowForm(true)}>+ {t('add_establishments_title')}</button>
             </div>
             {showForm && (
                 <div className='modal'>
