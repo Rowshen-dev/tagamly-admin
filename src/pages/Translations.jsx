@@ -36,8 +36,8 @@ export default function Translations() {
     return (
         <div>
             <div className='header'>
-            <h1>{t('translations_title')}</h1>
-            <button onClick={() => setShowTranslate(true)}>+ {t('add_translations')}</button>
+            <h1>{t('translations')}</h1>
+            <button onClick={() => setShowTranslate(true)}>+ {t('add_translation')}</button>
             </div>
             {showTranslate && (
                 <div className='modal'>
