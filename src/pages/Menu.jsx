@@ -16,11 +16,18 @@ export default function Menu() {
     }, [])
     return (
         <div>
-            <h1>Рестораны</h1>
+            <div className="navbar">
+    <span style={{color: '#F97316', fontWeight: 'bold', fontSize: '20px'}}>Tagamly</span>
+    <button>For Partners</button>
+</div>
+            <h1>Restoranlar</h1>
             <div className="grid">
            {menu.map((item) => (
     <div key={item.id} className="card">
-        {item.name}
+       <div className="card-image">
+        {item.logo_url && <img src={item.logo_url} alt={item.name} />}
+        </div> 
+       {item.name}
     </div>
 ))}
         </div>
