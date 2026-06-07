@@ -32,7 +32,7 @@ export default function Languages() {
         <div>
             <div className="header">
             <h1>{t('languages_title')}</h1>
-            <button onClick={() => setShowLanguages(true)}>+ {t('add_languages')}</button>
+            <button onClick={() => setShowLanguages(true)}>+ {t('add_language')}</button>
             </div>
             {showLanguages && (
                 <div className="modal">

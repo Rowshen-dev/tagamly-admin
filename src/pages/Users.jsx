@@ -29,7 +29,7 @@ export default function Users() {
         <div>
             <div className="header">
         <h1>{t('users_title')}</h1>
-        <button onClick={() => setShowUsers(true)}>+ {t('add_users')}</button>
+        <button onClick={() => setShowUsers(true)}>+ {t('add_user')}</button>
         </div>
         {showUsers && (
             <div className="modal">
