@@ -15,13 +15,15 @@ export default function Menu() {
         })
     }, [])
     return (
-        <div className="grid">
+        <div>
             <h1>Рестораны</h1>
+            <div className="grid">
            {menu.map((item) => (
     <div key={item.id} className="card">
         {item.name}
     </div>
 ))}
+        </div>
         </div>
     )
 }
