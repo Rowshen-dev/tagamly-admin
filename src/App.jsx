@@ -6,12 +6,17 @@ import Regions from "./pages/Regions";
 import Orders from './pages/Orders';
 import Users from "./pages/Users";
 import Translations from './pages/Translations';
+import Menu from './pages/Menu';
+import { useLocation } from "react-router-dom";
 
-export default function App() {
+
+function AppContent() {
+    const location = useLocation()
+    const isMenu = location.pathname.startsWith('/menu')
+    
     return (
-        <BrowserRouter>
         <div style={{display: 'flex'}}>
-            <Sidebar/>
+            {!isMenu && <Sidebar />}
             <main style={{ flex: 1, padding: '24px'}}>
                 <Routes>
                     <Route path="/" element = {<Navigate to="/establishments" />} />
@@ -21,9 +26,19 @@ export default function App() {
                     <Route path="/orders" element = {<Orders />} />
                     <Route path="/users" element = {<Users />} />
                     <Route path="/translations" element = {<Translations />} />
+                    <Route path="/menu" element = {<Menu />} />
                 </Routes>
             </main>
         </div>
+            
+    )
+}
+
+
+export default function App() {
+    return (
+        <BrowserRouter>
+        <AppContent />
         </BrowserRouter>
     )
 }
