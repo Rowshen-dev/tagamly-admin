@@ -1,5 +1,6 @@
 import { supabase } from "../lib/supabase";
 import { useState, useEffect } from "react";
+import './Menu.css';
 
 
 export default function Menu() {
@@ -14,10 +15,10 @@ export default function Menu() {
         })
     }, [])
     return (
-        <div>
+        <div className="grid">
             <h1>Рестораны</h1>
            {menu.map((item) => (
-    <div key={item.id}>
+    <div key={item.id} className="card">
         {item.name}
     </div>
 ))}
