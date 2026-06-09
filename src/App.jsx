@@ -20,6 +20,7 @@ function AppContent() {
             <main style={{ flex: 1, padding: '24px'}}>
                 <Routes>
                     <Route path="/" element = {<Navigate to="/establishments" />} />
+                    <Route path="/restaurantspage" element = {<RestaurantsPage />} />
                     <Route path="/establishments" element = {<Establishments />} />
                     <Route path="/languages" element = {<Languages />} />
                     <Route path="/regions" element = {<Regions />} />

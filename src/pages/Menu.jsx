@@ -1,6 +1,7 @@
 import { supabase } from "../lib/supabase";
 import { useState, useEffect } from "react";
 import './Menu.css';
+import { Link } from 'react-router-dom';
 
 
 export default function Menu() {
@@ -31,6 +32,7 @@ export default function Menu() {
     </div>
 ))}
         </div>
+        <Link to="/menu/:subdomain">Menu</Link>
         </div>
     )
 }
