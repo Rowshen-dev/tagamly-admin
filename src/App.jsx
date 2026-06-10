@@ -8,6 +8,7 @@ import Users from "./pages/Users";
 import Translations from './pages/Translations';
 import Menu from './pages/Menu';
 import { useLocation } from "react-router-dom";
+import RestaurantsPage from "/.pages/Restaurantspage";
 
 
 function AppContent() {
@@ -20,7 +21,7 @@ function AppContent() {
             <main style={{ flex: 1, padding: '24px'}}>
                 <Routes>
                     <Route path="/" element = {<Navigate to="/establishments" />} />
-                    <Route path="/restaurantspage" element = {<RestaurantsPage />} />
+                    <Route path="/menu/:subdomain" element = {<RestaurantsPage />} />
                     <Route path="/establishments" element = {<Establishments />} />
                     <Route path="/languages" element = {<Languages />} />
                     <Route path="/regions" element = {<Regions />} />
