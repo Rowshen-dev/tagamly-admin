@@ -6,9 +6,10 @@ import Regions from "./pages/Regions";
 import Orders from './pages/Orders';
 import Users from "./pages/Users";
 import Translations from './pages/Translations';
+import RestaurantsPage from "/.pages/Restaurantspage";
 import Menu from './pages/Menu';
 import { useLocation } from "react-router-dom";
-import RestaurantsPage from "/.pages/Restaurantspage";
+
 
 
 function AppContent() {
