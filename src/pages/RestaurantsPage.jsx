@@ -13,7 +13,17 @@ export default function RestaurantsPage() {
             <h1>Kategoriyalar</h1>
             <button onClick={() => navigate(-1)}> - </button>
             </div>
-
+            
+            <div className='grid'>
+                {restaurantPage.map((item) => (
+                    <div key={item.id} className='card'>
+                        <div className='card-emage'>
+                            {item.logo_url && <img src={item.logo_url} alt={itemm.name} />} 
+                            </div>
+                            {item.name}
+                            </div>
+                ))}
+            </div>
 
 
         </div>
