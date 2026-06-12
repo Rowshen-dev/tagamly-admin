@@ -56,7 +56,7 @@ export default function RestaurantsPage() {
         ))}
         {products.map((item) => (
             <tr key={item.id}>
-                <td>{item.name}x</td>
+                <td>{item.name}</td>
             </tr>
         ))}
     </div>
