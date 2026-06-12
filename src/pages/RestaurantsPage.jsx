@@ -9,6 +9,7 @@ export default function RestaurantsPage() {
     const { subdomain } = useParams();
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
+    const [activeCategory, setActiveCategory] = useState(null);
 
     useEffect(() => {
         supabase.from('establishments')
@@ -40,7 +41,7 @@ export default function RestaurantsPage() {
         .then(({data}) => {
             if(data) setProducts(data)
         })
-    }, [categories])
+    }, [categories]);
 
 
     return (
@@ -49,16 +50,19 @@ export default function RestaurantsPage() {
             <h1>{restaurantPage?.name}</h1>
             <button onClick={() => navigate(-1)}>Назад</button>
         </div>
+        
         {categories.map((item) => (
-            <tr key={item.id}>
-                <td>{item.name}</td>
-            </tr>
+            <div key={item.id} onClick={() => setActiveCategory(item.id)}>
+                {item.name}
+            </div>
         ))}
-        {products.map((item) => (
-            <tr key={item.id}>
-                <td>{item.name}</td>
-            </tr>
-        ))}
+        
+       {products
+       .filter(p => p.category_id === activeCategory)
+       .map((item) => (
+        <div key={item.id}>{item.name}</div>
+       ))
+       }
     </div>
 )
 
