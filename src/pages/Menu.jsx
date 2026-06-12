@@ -24,12 +24,14 @@ export default function Menu() {
             <h1>Restoranlar</h1>
             <div className="grid">
            {menu.map((item) => (
-    <div key={item.id} className="card">
+            <Link to={`/menu/${item.subdomain}`} key={item.id}>
+    <div className="card">
        <div className="card-image">
         {item.logo_url && <img src={item.logo_url} alt={item.name} />}
         </div> 
        {item.name}
     </div>
+    </Link>
 ))}
         </div>
         <Link to="/menu/:subdomain">Menu</Link>
