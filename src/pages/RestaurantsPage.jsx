@@ -8,6 +8,7 @@ export default function RestaurantsPage() {
     const navigate = useNavigate();
     const { subdomain } = useParams();
     const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         supabase.from('establishments')
@@ -27,7 +28,19 @@ export default function RestaurantsPage() {
         .then(({data: cats}) => {
             if(cats) setCategories(cats)
         })
-    }, [restaurantPage])
+    }, [restaurantPage]);
+
+
+    useEffect(() => {
+        if(categories.length === 0) return
+        const categoryIds = categories.map(c => c.id)
+        supabase.from('products')
+        .select('*')
+        .in('category_id', categoryIds)
+        .then(({data}) => {
+            if(data) setProducts(data)
+        })
+    }, [categories])
 
 
     return (
@@ -39,6 +52,11 @@ export default function RestaurantsPage() {
         {categories.map((item) => (
             <tr key={item.id}>
                 <td>{item.name}</td>
+            </tr>
+        ))}
+        {products.map((item) => (
+            <tr key={item.id}>
+                <td>{item.name}x</td>
             </tr>
         ))}
     </div>
