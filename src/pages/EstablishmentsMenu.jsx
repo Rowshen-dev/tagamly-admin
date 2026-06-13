@@ -1,3 +1,5 @@
 export default function establishmentsMenu() {
-    <h1>Menu</h1>
+  return (
+    <h1>Меню заведения</h1>
+  )
 }

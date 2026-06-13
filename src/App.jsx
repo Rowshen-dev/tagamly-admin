@@ -9,6 +9,7 @@ import Translations from './pages/Translations';
 import RestaurantsPage from './pages/RestaurantsPage';
 import Menu from './pages/Menu';
 import { useLocation } from "react-router-dom";
+import Establishments from "./pages/Establishments";
 
 
 
