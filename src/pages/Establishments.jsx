@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import './Establishments.css';
 import  {useTranslation} from 'react-i18next'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Establishments() {
@@ -78,6 +79,7 @@ export default function Establishments() {
                     <th>Domen</th>
                     <th>Status</th>
                     <th>Gutaryan wagty</th>
+                    <th>Меню</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,6 +89,11 @@ export default function Establishments() {
                         <td>{item.name}</td>
                         <td>{item.subdomain}</td>
                         <td>{item.end_date}</td>
+                        <td>
+                            <button onClick={() => navigate(`/admin/establishments/${item.id}/menu`)}>
+                                Меню
+                            </button>
+                        </td>
                     </tr>
                    ))}
                 </tbody>
