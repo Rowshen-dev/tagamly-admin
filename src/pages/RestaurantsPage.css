@@ -1,0 +1,20 @@
+.category {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+
+}
+
+.category-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    background: white;
+}
+
+.category-btn.active {
+    background-color: #F97316;
+    color: white;
+    border-color: #F97316;
+}

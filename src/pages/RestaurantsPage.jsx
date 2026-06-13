@@ -48,14 +48,21 @@ export default function RestaurantsPage() {
     <div>
         <div className='header'>
             <h1>{restaurantPage?.name}</h1>
+            <div className='category-btn'>
             <button onClick={() => navigate(-1)}>Назад</button>
+            </div>
         </div>
         
         {categories.map((item) => (
-            <div key={item.id} onClick={() => setActiveCategory(item.id)}>
-                {item.name}
-            </div>
+            <button
+            key={item.id} 
+        className={`category-btn ${activeCategory === item.id ? 'active' : ''}`}
+            onClick={() => setActiveCategory(item.id)}
+            >
+            {item.name}
+        </button>
         ))}
+        
         
        {products
        .filter(p => p.category_id === activeCategory)
@@ -63,6 +70,7 @@ export default function RestaurantsPage() {
         <div key={item.id}>{item.name}</div>
        ))
        }
+       
     </div>
 )
 
