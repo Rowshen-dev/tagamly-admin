@@ -9,7 +9,7 @@ import Translations from './pages/Translations';
 import RestaurantsPage from './pages/RestaurantsPage';
 import Menu from './pages/Menu';
 import { useLocation } from "react-router-dom";
-import Establishments from "./pages/Establishments";
+import EstablishmentsMenu from "./pages/EstablishmentsMenu";
 
 
 
@@ -31,7 +31,7 @@ function AppContent() {
                     <Route path="/users" element = {<Users />} />
                     <Route path="/translations" element = {<Translations />} />
                     <Route path="/menu" element = {<Menu />} />
-                    <Route path="/admin/establishments/:id/menu" element={<EstablishmentsMenu />} />
+                   <Route path="/admin/establishments/:id/menu" element={<EstablishmentsMenu />} />
                 </Routes>
             </main>
         </div>
