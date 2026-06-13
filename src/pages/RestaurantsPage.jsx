@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase'; 
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import './RestaurantsPage.css';
 
 export default function RestaurantsPage() {
     const [restaurantPage, setRestaurantPage] = useState(null);
