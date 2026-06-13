@@ -30,6 +30,7 @@ function AppContent() {
                     <Route path="/users" element = {<Users />} />
                     <Route path="/translations" element = {<Translations />} />
                     <Route path="/menu" element = {<Menu />} />
+                    <Route path="/admin/establishments/:id/menu" element={<EstablishmentsMenu />} />
                 </Routes>
             </main>
         </div>

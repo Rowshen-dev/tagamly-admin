@@ -86,8 +86,10 @@ export default function Establishments() {
                    {establishments.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
                    .map((item) => (
                     <tr key={item.id}>
+                        <td></td>
                         <td>{item.name}</td>
                         <td>{item.subdomain}</td>
+                        <td></td>
                         <td>{item.end_date}</td>
                         <td>
                             <button onClick={() => navigate(`/admin/establishments/${item.id}/menu`)}>
