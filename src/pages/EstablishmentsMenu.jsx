@@ -9,8 +9,8 @@ export default function EstablishmentsMenu() {
 
   useEffect(() => {
     supabase.from('categories')
-    .eq('establishment_id', id)
     .select('*')
+    .eq('establishment_id', id)
     .then(({data, error}) => {
       if(error) {
         console.log('Ошибка')
