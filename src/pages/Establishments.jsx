@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import './Establishments.css';
 import  {useTranslation} from 'react-i18next'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useNavigate } from 'react-router-dom';
 
 
 export default function Establishments() {
@@ -13,6 +13,7 @@ export default function Establishments() {
     const [establishments, setEstablishments] = useState([]);
     const [search, setSearch] = useState('');  
     const {t} = useTranslation();
+    const useNavigate = useNavigate();
     useEffect(() => {
         supabase.from('establishments').select('*'). then(({data, error}) => {
             if (error) {
