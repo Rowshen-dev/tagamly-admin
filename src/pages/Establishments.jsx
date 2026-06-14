@@ -13,7 +13,7 @@ export default function Establishments() {
     const [establishments, setEstablishments] = useState([]);
     const [search, setSearch] = useState('');  
     const {t} = useTranslation();
-    const useNavigate = useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
         supabase.from('establishments').select('*'). then(({data, error}) => {
             if (error) {
