@@ -6,6 +6,9 @@ export default function EstablishmentsMenu() {
   const [category, setCategory] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [newName, setNewName] = useState('');
+  const [newDish, setNewDish] = useState([]);
+  const [showDishForm, setShowDishForm] = useState(false);
+
 
   const { id } = useParams();
 
@@ -20,6 +23,17 @@ export default function EstablishmentsMenu() {
        setShowForm(false)
       }
   
+      const handleDishAdd = async () => {
+        await supabase.from('dish')
+        .select('*')
+        .insert({
+          name: newDish,
+
+        })
+        const {data} = await supabase.from('dish').select('*')
+        setNewDish(data)
+        setShowDishForm(false)
+      }
   
 
   useEffect(() => {
@@ -60,6 +74,18 @@ export default function EstablishmentsMenu() {
         <td>{id}</td>
       </tr>
     ))}
+    <div>
+      <button onClick={() => setShowForm(true)}>+ Добавить блюдо</button>
+    </div>
+    {showDishForm && (
+      <div className="mealModal">
+       <input
+       placeholder="Название блюда"
+       value={newDish}
+       onChange={(e) => setNewDish(e.target.value)}
+       />
+       </div> 
+    )}
     </div>
   )
 }
