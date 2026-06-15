@@ -40,12 +40,11 @@ export default function EstablishmentsMenu() {
     <div>
     <h1>Меню заведения</h1>
     <div>Заведения: {id}</div>
-    <div>
+    <div className="">
     <button onClick={() => setShowForm(true)}>+ Добавить категорию</button>
     </div>
-    <div className="modal">
     {showForm && (
-      <div>
+      <div className="modal">
         <input
         placeholder="Название категории"
         value={newName}
@@ -55,7 +54,6 @@ export default function EstablishmentsMenu() {
         <button onClick={() => setShowForm(false)}>Отмена</button>
     </div>
     )}
-    </div>
     {category.map((item) => (
       <tr key={item.id}>
         <td>{item.name}</td>
