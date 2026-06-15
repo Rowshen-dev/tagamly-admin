@@ -54,7 +54,7 @@ export default function EstablishmentsMenu() {
     <div>
     <h1>Меню заведения</h1>
     <div>Заведения: {id}</div>
-    <div className="">
+    <div className="addCategory">
     <button onClick={() => setShowForm(true)}>+ Добавить категорию</button>
     </div>
     {showForm && (
@@ -72,9 +72,7 @@ export default function EstablishmentsMenu() {
       <tr key={item.id}>
         <td>{item.name}</td>
         <td>{id}</td>
-      </tr>
-    ))}
-    <div>
+          <div className="addDish">
       <button onClick={() => setShowForm(true)}>+ Добавить блюдо</button>
     </div>
     {showDishForm && (
@@ -86,6 +84,8 @@ export default function EstablishmentsMenu() {
        />
        </div> 
     )}
+      </tr>
+    ))}
     </div>
   )
 }

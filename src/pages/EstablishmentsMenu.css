@@ -12,3 +12,12 @@
     gap: 12px;
     width: 400px;
 }
+
+.addDish {
+    display: flex;
+}
+
+.addCategory {
+    display: flex;
+    
+}
