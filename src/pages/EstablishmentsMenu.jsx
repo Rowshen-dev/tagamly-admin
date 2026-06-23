@@ -72,7 +72,7 @@ export default function EstablishmentsMenu() {
     </div>
     )}
     {category.map((item) => (
-      <tr key={item.id}>
+      <div className="category-card"key={item.id}>
         <td>{item.name}</td>
           <div className="addDish">
       <button onClick={() => setShowDishForm(item.id)}>+ Добавить блюдо</button>
@@ -88,7 +88,7 @@ export default function EstablishmentsMenu() {
        <button onClick={() => setShowDishForm(false)}>Отмена</button>
        </div> 
     )}
-      </tr>
+      </div>
     ))}
     </div>
   )
