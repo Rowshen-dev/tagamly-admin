@@ -6,8 +6,10 @@ export default function EstablishmentsMenu() {
   const [category, setCategory] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [newName, setNewName] = useState('');
-  const [newDish, setNewDish] = useState([]);
+  const [newDish, setNewDish] = useState('');
   const [showDishForm, setShowDishForm] = useState(false);
+  const [newDishPrice, setDishPrice] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
 
 
   const { id } = useParams();
@@ -23,14 +25,15 @@ export default function EstablishmentsMenu() {
        setShowForm(false)
       }
   
-      const handleDishAdd = async () => {
-        await supabase.from('dish')
-        .select('*')
+      const handleAddDish = async () => {
+        await supabase.from('products')
         .insert({
           name: newDish,
+          category_id: selectedCategory, 
+          price: newDishPrice,
 
         })
-        const {data} = await supabase.from('dish').select('*')
+        const {data} = await supabase.from('products').select('*')
         setNewDish(data)
         setShowDishForm(false)
       }
@@ -72,7 +75,7 @@ export default function EstablishmentsMenu() {
       <tr key={item.id}>
         <td>{item.name}</td>
           <div className="addDish">
-      <button onClick={() => setShowForm(true)}>+ Добавить блюдо</button>
+      <button onClick={() => setShowDishForm(true)}>+ Добавить блюдо</button>
     </div>
     {showDishForm && (
       <div className="mealModal">
@@ -81,6 +84,8 @@ export default function EstablishmentsMenu() {
        value={newDish}
        onChange={(e) => setNewDish(e.target.value)}
        />
+       <button onClick={handleAddDish}>Сохранить</button>
+       <button onClick={() => setShowDishForm(false)}>Отмена</button>
        </div> 
     )}
       </tr>
