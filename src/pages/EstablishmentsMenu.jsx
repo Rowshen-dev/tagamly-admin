@@ -7,7 +7,7 @@ export default function EstablishmentsMenu() {
   const [showForm, setShowForm] = useState(false);
   const [newName, setNewName] = useState('');
   const [newDish, setNewDish] = useState('');
-  const [showDishForm, setShowDishForm] = useState(false);
+  const [showDishForm, setShowDishForm] = useState(null);
   const [newDishPrice, setDishPrice] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -75,9 +75,9 @@ export default function EstablishmentsMenu() {
       <tr key={item.id}>
         <td>{item.name}</td>
           <div className="addDish">
-      <button onClick={() => setShowDishForm(true)}>+ Добавить блюдо</button>
+      <button onClick={() => setShowDishForm(item.id)}>+ Добавить блюдо</button>
     </div>
-    {showDishForm && (
+    {showDishForm === item.id && (
       <div className="mealModal">
        <input
        placeholder="Название блюда"
