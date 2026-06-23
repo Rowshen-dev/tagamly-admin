@@ -71,7 +71,6 @@ export default function EstablishmentsMenu() {
     {category.map((item) => (
       <tr key={item.id}>
         <td>{item.name}</td>
-        <td>{id}</td>
           <div className="addDish">
       <button onClick={() => setShowForm(true)}>+ Добавить блюдо</button>
     </div>
