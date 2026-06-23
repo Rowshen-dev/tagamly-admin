@@ -53,7 +53,7 @@ export default function EstablishmentsMenu() {
   return (
     <div>
     <h1>Меню заведения</h1>
-    <div>Заведения: {id}</div>
+    <div>Заведения: </div>
     <div className="addCategory">
     <button onClick={() => setShowForm(true)}>+ Добавить категорию</button>
     </div>
