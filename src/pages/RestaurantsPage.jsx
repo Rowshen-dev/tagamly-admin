@@ -53,7 +53,7 @@ export default function RestaurantsPage() {
             <button onClick={() => navigate(-1)}>Назад</button>
             </div>
         </div>
-        
+        <div className='category'>
         {categories.map((item) => (
             <button
             key={item.id} 
@@ -63,15 +63,15 @@ export default function RestaurantsPage() {
             {item.name}
         </button>
         ))}
-        
+        </div>
         
        {products
        .filter(p => p.category_id === activeCategory)
        .map((item) => (
         <div key={item.id} className='product-card'>
         <span>{item.name}</span>
-        <span>{item.price} TMT</span>
-        {item.name}</div>
+        <span>{item.price}</span>
+        </div>
        ))
        }
        
