@@ -18,3 +18,10 @@
     color: white;
     border-color: #F97316;
 }
+
+.product-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}

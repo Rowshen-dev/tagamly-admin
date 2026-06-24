@@ -68,7 +68,10 @@ export default function RestaurantsPage() {
        {products
        .filter(p => p.category_id === activeCategory)
        .map((item) => (
-        <div key={item.id}>{item.name}</div>
+        <div key={item.id} className='product-card'>
+        <span>{item.name}</span>
+        <span>{item.price} TMT</span>
+        {item.name}</div>
        ))
        }
        
