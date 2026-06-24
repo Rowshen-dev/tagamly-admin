@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../lib/supabase";
+import './EstablishmentsMenu.css';
 
 export default function EstablishmentsMenu() {
   const [category, setCategory] = useState([]);
@@ -73,7 +74,7 @@ export default function EstablishmentsMenu() {
     )}
     {category.map((item) => (
       <div className="category-card"key={item.id}>
-        <td>{item.name}</td>
+        <span>{item.name}</span>
           <div className="addDish">
       <button onClick={() => setShowDishForm(item.id)}>+ Добавить блюдо</button>
     </div>
